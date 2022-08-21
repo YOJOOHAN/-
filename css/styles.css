@@ -1,0 +1,457 @@
+*{
+  margin:0;
+  padding:0;
+}
+/* これは、ブラウザでの見え方の差異を無くすため、余白を０にする処理です。 */
+
+body{
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.flash{
+position: absolute;
+width: 100vw;
+height: 100vh;
+background-color: aliceblue;
+opacity: 0;
+pointer-events: none;
+user-select: none;
+z-index: 10;
+}
+.flash.active{
+  animation: flashed 1s;
+}
+
+@keyframes flashed{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+
+.endingBack{
+position: absolute;
+width: 100vw;
+height: 100vh;
+background-color: rgb(255, 255, 255);
+opacity: 0;
+pointer-events: none;
+user-select: none;
+z-index: 100;
+}
+.endingBack.active{
+  transition: all 2s;
+  opacity: 1;
+}
+
+.gameOverBack{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(53, 11, 11);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 11;
+  }
+  .gameOverBack.active{
+    transition: all 2s;
+    opacity: 1;
+  }
+  
+
+
+
+.container{
+  background-color:grey;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mirror00{
+  display: block;
+  width: 35vw;
+}
+  .mirror00.active{
+  animation: 2s  forwards fadeOut;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#loading {
+  margin-bottom: 10vh;
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  border: 2vw solid #ccc;
+  border-right-color: transparent;
+  border-radius: 50%;
+  
+  animation: spin .8s infinite linear;
+}
+#loading.active{
+  transition: all 2s;
+  opacity: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#text1{
+  margin-top: 14vw;
+  font-size: 1.5vw;
+  position: absolute;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+  #text1.active{
+  transition: all 2s;
+  opacity: 0;
+  }
+
+#text2{
+  margin-top: 19vw;
+  font-size: 1.5vw;
+  position: absolute;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+  #text2.active{
+    transition: all 2s;
+   opacity: 0;
+  }
+
+#preImage{
+  position: absolute;
+  width: 5vh;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.mirror01{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+}
+  .mirror01.active{
+    animation: 2s  fadeInOut;
+  }
+
+@keyframes fadeInOut{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+ 
+.mirror02{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+  }
+
+  .mirror02.active{
+  animation: 2s  fadeInOut;
+}
+
+.mirror03{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+  }
+
+  .mirror03.active{
+  animation: 2s  fadeInOut;
+}
+
+.mirror04{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+  }
+
+  .mirror04.active{
+  animation: 2s  fadeInOut;
+}
+
+.mirror05{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+  }
+
+  .mirror05.active{
+  animation: 2s  fadeInOut;
+}
+
+.mirror06{
+  position: absolute;
+  width: 35vw;
+  opacity: 0;
+  }
+
+  .mirror06.active{
+  animation: 4s  fadeInZoom;
+}
+
+@keyframes fadeInZoom{
+  0%{opacity:0;}
+  20%{opacity:1; transform: scale(1);}
+  100%{opacity:0; transform: scale(20) translateY(3vw);}
+}
+
+.main1{
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+  .main1.active{
+ animation:2s fadeInSlide forwards;
+}
+
+@keyframes fadeInSlide{
+  0%{opacity:0;}
+  50%{opacity:1; transform: translate(0);}
+  100%{opacity:1; transform:translateX(-25vw);}
+}
+
+.main2{
+  position: absolute;
+  opacity: 0;
+}
+
+.main2.active{
+  animation:2s fadeInSlide2 forwards;
+ }
+ 
+ @keyframes fadeInSlide2{
+   0%{opacity:0;}
+   50%{opacity:1; transform: translate(0);}
+   100%{opacity:1; transform:translateX(25vw);}
+ }
+
+
+
+canvas{
+  translate: 25vw;
+  opacity: 0;
+  position: absolute;
+  background:rgb(0, 0, 0) ;
+  display:block;
+  cursor: pointer;
+}
+canvas.active{
+  transition:all 0.5s;
+  opacity: 1;
+}
+canvas.active2{
+  pointer-events: none;
+  user-select: none;
+}
+
+
+.preSandWatch{
+  position: absolute;
+  margin-top: -60vh;
+  width: 8vw;
+  opacity: 0;
+}
+.preSandWatch.active{
+  animation:downRotate forwards 2s;
+}
+
+
+.sandWatch{
+  position: absolute;
+  margin-top: -10vh;
+  width: 8vw;
+  opacity: 0;
+  z-index: 1;
+}
+.sandWatch.active{
+  opacity:1;
+}
+.sandWatch.active2{
+  animation:shaking forwards linear 0.2s;
+}
+
+@keyframes shaking{
+  0%{opacity: 1; transform:  rotate(0deg);}
+  25%{opacity: 1; transform:  rotate(-45deg);}
+  75%{opacity: 1; transform:  rotate(45deg);}
+  100%{opacity: 1; transform:  rotate(0deg);}
+  
+}
+
+
+@keyframes downRotate{
+  0%{opacity:0;}
+  50%{opacity:1; transform: translate() rotate(0);}
+  100%{opacity:1; transform:translateY(50vh) rotate(720deg);}
+}
+
+.ready{
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  font-size: 10vh;
+  width: 100%;
+  text-align: center;
+  color: rgb(239, 239, 239);
+  background-color: rgb(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 20;
+}
+.ready.active{
+  animation: fadeInOut 2.5s;
+}
+
+.go{
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  position: absolute;
+  font-size: 15vh;
+  width: 100%;
+  text-align: center;
+  color: rgb(239, 239, 239);
+  background-color: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 20;
+}
+.go.active{
+  animation: fadeInOut 1s;
+}
+
+.timer{
+  opacity: 0;
+  position: absolute;
+  margin-top: 20vh;
+  z-index: 100;
+}
+
+.endPic{
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:101
+}
+.endPic.active{
+  transition: all 1s;
+  opacity:1
+}
+
+.gameOverPic{
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:20
+}
+.gameOverPic.active{
+  transition: all 1s;
+  opacity:0.8
+}
+
+.retry{
+  display: block;
+  opacity: 0;
+  translate: 40vw 40vh;
+  width: 8vw;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:105;
+}
+.retry.active{
+  transition:all 0s;
+  opacity: 1;
+  pointer-events:all;  
+}
+.retry.active:hover{
+  opacity: 0.6;
+}
+.retry.active:active{
+  transition: all 0s;
+  transform: scale(0.8);
+}
+
+.clearMessage{
+  font-size: 8vw;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:102
+}
+.clearMessage.active{
+  transition: all 1s;
+  opacity: 1;
+  transform: translateY(-36vh);
+}
+
+.gameOverMessage{
+  translate:0 20vh;
+  font-size: 8vw;
+  opacity: 0;
+  color: aliceblue;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:21
+}
+
+.gameOverMessage.active{
+  animation: fadeInOut2 3s;  
+}
+
+@keyframes fadeInOut2{
+  0%{opacity:0;}
+  25%{opacity:1;
+  transform: translateY(-20vh);}
+  75%{opacity:1;
+    transform: translateY(-20vh)}
+  100%{opacity:0;
+    transform: translateY(0vh)}
+}
+
+.giveUp{
+  display: block;
+  translate: 0 15vh;
+  opacity: 0;
+  width: 8vw;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index:5;
+}
+.giveUp.active{
+  transition: all 1s;
+  opacity: 1;
+  pointer-events: all;
+}
+.giveUp.active:hover{
+  transition: all;
+  opacity: 0.6;
+}
+.giveUp.active:active{
+  transition: all;
+  transform: scale(0.8);
+}
